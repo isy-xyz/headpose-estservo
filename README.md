@@ -2,9 +2,8 @@
 
 A Python script that tracks head movements and controls Arduino servos via serial communication.
 
-Unlike standard trackers that move constantly, this one uses a custom threshold logic to keep the servos stable. It waits for significant head movement (>20 degrees) before triggering the servos to specific angles.
-
 ### Key Features
+* **AI-Driven Hardware**: Uses Python (OpenCV) to detect head pose and drive Arduino servos instantly.
 * **Low Latency**: Uses 115200 baud rate for fast response.
 * **Stable**: Implements a "dead zone" logic to avoid servo jitter.
 * **Lightweight**: Sends simple integer data instead of heavy strings.
