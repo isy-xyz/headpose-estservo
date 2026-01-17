@@ -29,3 +29,18 @@ Upload the `arduino_code.ino` file to your board using Arduino IDE.
 Install the required libraries (optimized for Python 3.10):
 ```bash
 pip install -r requirements.txt
+```
+**4. Run**
+
+* Edit the serial port in `main.py` if necessary (e.g., `/dev/ttyUSB0` or `COM3`).
+* Run the script:
+
+```bash
+python main.py
+
+```
+
+### Requirements
+
+* Python 3.8 - 3.10 (Recommended)
+* OpenCV, MediaPipe, PySerial, NumPy (versions specified in `requirements.txt`)
