@@ -40,6 +40,7 @@ alpha = 0.25 # <-- You can adjust this (I use 0.25)
 # - Higher: faster but more risk of jitter
 prev_x = 0
 prev_y = 0
+pTime = 0
 
 print("Press 'q' to exit.")
 
@@ -113,6 +114,17 @@ while cap.isOpened():
             cv2.line(image, p1, p2, (255, 0, 0), 3)
             cv2.putText(image, f"X: {int(smooth_x)}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             cv2.putText(image, f"Y: {int(smooth_y)}", (20, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+    # FPS Counter
+    cTime = time.time()
+    fps = 1 / (cTime - pTime)
+    pTime = cTime
+    
+    cv2.putText(image, f"FPS: {int(fps)}", (img_w - 85, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
+
+    cv2.imshow('Head Pose Estimation', image)
+    if cv2.waitKey(5) & 0xFF == ord('q'):
+        break
 
     cv2.imshow('Head Pose Estimation', image)
     if cv2.waitKey(5) & 0xFF == ord('q'):
